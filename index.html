@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Whack-a-Mole</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Whack-a-Mole</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile scaling -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" role="main" aria-label="Whack-a-Mole game area">
-        <h1>Whack-a-Mole</h1>
-        <div class="score" aria-live="polite">Score: <span id="score-value">0</span></div>
-        <div class="game-board">
-            <button class="mole-btn" id="mole1" aria-label="Mole 1"></button>
-            <button class="mole-btn" id="mole2" aria-label="Mole 2"></button>
-            <button class="mole-btn" id="mole3" aria-label="Mole 3"></button>
-        </div>
-        <button id="restart" aria-label="Restart game">Restart</button>
-    </div>
-    <script src="script.js"></script>
+  <main class="container" aria-label="Whack-a-Mole game area">
+    <h1>Whack-a-Mole</h1>
+    <div class="score" aria-live="polite">Score: <span id="score-value">0</span></div>
+    <section class="game-board" aria-label="Mole buttons">
+      <button class="mole-btn" id="mole1" aria-label="Whack mole 1" tabindex="0"></button>
+      <button class="mole-btn" id="mole2" aria-label="Whack mole 2" tabindex="0"></button>
+      <button class="mole-btn" id="mole3" aria-label="Whack mole 3" tabindex="0"></button>
+    </section>
+    <button id="restart" aria-label="Restart Game" tabindex="0">Restart</button>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
