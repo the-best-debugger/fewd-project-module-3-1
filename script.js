@@ -1,34 +1,39 @@
-const moles = document.querySelectorAll('.mole');
-const scoreBox = document.getElementById('score');
+const moleButtons = document.querySelectorAll('.mole-btn');
+const scoreDisplay = document.getElementById('score-value');
 const restartBtn = document.getElementById('restart');
-
 let score = 0;
-let activeMole = -1;
 
-// Randomly highlight a mole every 1s
+// Pick a random mole and show the "active" (green) class
 function activateRandomMole() {
-    moles.forEach(btn => btn.classList.remove('active'));
-    activeMole = Math.floor(Math.random() * moles.length);
-    moles[activeMole].classList.add('active');
+    moleButtons.forEach(btn => btn.classList.remove('active'));
+    const randomIndex = Math.floor(Math.random() * moleButtons.length);
+    moleButtons[randomIndex].classList.add('active');
 }
 
-function handleMoleClick(e) {
-    if (e.target.classList.contains('active')) {
-        score++;
-        scoreBox.textContent = `Score: ${score}`;
-        activateRandomMole();
-    }
-}
+// When clicked, score increases only if 'active'
+moleButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        if (btn.classList.contains('active')) {
+            score++;
+            scoreDisplay.textContent = score;
+            activateRandomMole();
+        }
+    });
+    btn.addEventListener('keyup', function(e) {
+        if ((e.key === 'Enter' || e.key === ' ') && btn.classList.contains('active')) {
+            score++;
+            scoreDisplay.textContent = score;
+            activateRandomMole();
+        }
+    });
+});
 
-moles.forEach(mole => mole.addEventListener('click', handleMoleClick));
-
-// Start game
-activateRandomMole();
-let moleInterval = setInterval(activateRandomMole, 1000);
-
-// Restart logic
-restartBtn.addEventListener('click', () => {
+// Restart resets score and a new random mole
+restartBtn.addEventListener('click', function() {
     score = 0;
-    scoreBox.textContent = `Score: 0`;
+    scoreDisplay.textContent = score;
     activateRandomMole();
 });
+
+// Initial activation
+activateRandomMole();

@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
+    <div class="container" role="main" aria-label="Whack-a-Mole game area">
         <h1>Whack-a-Mole</h1>
-        <div id="score">Score: 0</div>
-        <div class="board">
-            <button class="mole"></button>
-            <button class="mole"></button>
-            <button class="mole"></button>
+        <div class="score" aria-live="polite">Score: <span id="score-value">0</span></div>
+        <div class="game-board">
+            <button class="mole-btn" id="mole1" aria-label="Mole 1"></button>
+            <button class="mole-btn" id="mole2" aria-label="Mole 2"></button>
+            <button class="mole-btn" id="mole3" aria-label="Mole 3"></button>
         </div>
-        <button id="restart">Restart</button>
+        <button id="restart" aria-label="Restart game">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>
