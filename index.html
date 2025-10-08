@@ -7,20 +7,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container" aria-label="Whack-a-Mole game area">
+  <main class="container" aria-label="Whack-a-Mole Game Area">
     <h1>Whack-a-Mole</h1>
-    <div class="score" aria-live="polite">Score: <span id="score-value">0</span></div>
-    <section class="game-board" aria-label="Mole buttons">
-      <button class="mole-btn" id="mole1" aria-label="Whack mole 1" tabindex="0"></button>
-      <button class="mole-btn" id="mole2" aria-label="Whack mole 2" tabindex="0"></button>
-      <button class="mole-btn" id="mole3" aria-label="Whack mole 3" tabindex="0"></button>
+    <div class="score" aria-live="polite">
+      <span id="score-label">Score:</span>
+      <span id="score-value">0</span> / 5
+    </div>
+    <section class="game-board" aria-label="Mole Buttons">
+      <button class="mole-btn" id="mole1" aria-label="Whack mole 1"></button>
+      <button class="mole-btn" id="mole2" aria-label="Whack mole 2"></button>
+      <button class="mole-btn" id="mole3" aria-label="Whack mole 3"></button>
     </section>
+    <div id="msg-bar" aria-live="polite"></div>
     <div id="win-message" aria-live="assertive" style="display:none;">
       <span class="emoji">🎉</span>
       <span class="win-text">You win!</span>
       <span class="emoji">🎉</span>
     </div>
-    <button id="restart" aria-label="Restart Game" tabindex="0">Restart</button>
+    <button id="restart" aria-label="Restart Game">Restart</button>
   </main>
   <script src="script.js"></script>
 </body>
